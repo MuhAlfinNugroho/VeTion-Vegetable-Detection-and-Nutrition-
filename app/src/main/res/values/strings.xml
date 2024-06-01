@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CapstoneProject</string>
+    <string name="login">Login\n</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="ex_email">youremail@gmail.com</string>
+    <string name="dont_have_account">Don\'n have an account?</string>
+    <string name="create">Create Now</string>
+</resources>
