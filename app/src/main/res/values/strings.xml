@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CapstoneProject</string>
+    <string name="login">Login\n</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="ex_email">youremail@gmail.com</string>
+    <string name="dont_have_account">Don\'n have an account?</string>
+    <string name="create">Create Now</string>
+    <string name="register">Register</string>
+    <string name="name">Nama</string>
+    <string name="name_example">Diaz Alfadilu</string>
+    <string name="username">Username</string>
+    <string name="vetion">VeTion</string>
+    <string name="top_menu">Top 3 Menu</string>
+    <string name="news">News</string>
+    <string name="result">Text Berita</string>
+    <string name="menu_1">Home</string>
+    <string name="menu_2">Menu</string>
+    <string name="title_activity_button">ButtonActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="menu_3">Vegetable Tips</string>
+    <string name="menu_4">Camera</string>
+    <string name="menu_5">Nearby Shop</string>
+    <string name="menu_6">Profile</string>
+</resources>
