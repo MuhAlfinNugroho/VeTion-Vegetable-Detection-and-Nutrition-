@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.vetion.capstoneproject.databinding.FragmentDashboardBinding
 
+/*
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
@@ -39,4 +40,4 @@ class DashboardFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}
+}*/

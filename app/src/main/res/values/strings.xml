@@ -15,13 +15,13 @@
     <string name="news">News</string>
     <string name="result">Text Berita</string>
     <string name="menu_1">Home</string>
-    <string name="menu_2">Menu</string>
     <string name="title_activity_button">ButtonActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="menu_3">Vegetable Tips</string>
-    <string name="menu_4">Camera</string>
-    <string name="menu_5">Nearby Shop</string>
-    <string name="menu_6">Profile</string>
+    <string name="menu_2">Tips</string>
+    <string name="menu_3">Camera</string>
+    <string name="menu_4">Nearby Shop</string>
+    <string name="menu_5">Profile</string>
+    <string name="nama_aplikasi">VeTion</string>
 </resources>
