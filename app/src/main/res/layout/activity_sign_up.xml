@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_slow"
@@ -15,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tvRegister"
@@ -38,12 +37,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:alpha="0"
         android:text="@string/username"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvRegister"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@id/tvRegister" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name_text_layout"
@@ -52,23 +49,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="35dp"
-        android:alpha="0"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegister"
-        tools:alpha="100" >
+        app:layout_constraintTop_toBottomOf="@+id/username_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/name_example"
-            android:background="@color/white"
-            android:inputType="textEmailAddress"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -77,12 +68,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:alpha="0"
         android:text="@string/email"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_text_layout"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@id/name_text_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_text_layout"
@@ -91,22 +80,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="35dp"
-        android:alpha="0"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_text_layout"
-        tools:alpha="100" >
+        app:layout_constraintTop_toBottomOf="@+id/email_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/ex_email"
-            android:background="@color/white"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -115,12 +99,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:alpha="0"
         android:text="@string/password"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_text_layout"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@id/email_text_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pass_text_layout"
@@ -129,24 +111,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="35dp"
-        android:alpha="0"
+        android:layout_marginTop="8dp"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_text_layout"
-        tools:alpha="100" >
+        app:layout_constraintTop_toBottomOf="@+id/pass_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pass_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@string/password"
-            android:background="@color/white"
-            android:inputType="textPassword"
-            tools:ignore="SpeakableTextPresentCheck" />
-
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar
@@ -171,7 +147,6 @@
         android:backgroundTint="@color/bright_green"
         android:text="@string/register"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass_text_layout"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@+id/pass_text_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

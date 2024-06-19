@@ -16,7 +16,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "BASE_URL", "\"http://localhost:3000/\"")
+        buildConfigField("String", "BASE_URL", "\"https://my-vetion-backend-m7d2r5xhua-et.a.run.app/\"")
 
     }
 
@@ -76,5 +76,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2") //untuk lifecycleScope
 
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+
 
 }

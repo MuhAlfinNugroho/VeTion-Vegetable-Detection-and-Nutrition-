@@ -1,7 +1,5 @@
 package com.vetion.capstoneproject.view.login
 
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,21 +7,19 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.vetion.capstoneproject.MainActivity
 import com.vetion.capstoneproject.ModelUser
 import com.vetion.capstoneproject.R
-import com.vetion.capstoneproject.databinding.ActivityLoginBinding
 import com.vetion.capstoneproject.Result
 import com.vetion.capstoneproject.ViewModelFactory
+import com.vetion.capstoneproject.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
-    private val viewModel by viewModels<LoginViewModel> {
+
+    private val viewModel: LoginViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
     private lateinit var binding: ActivityLoginBinding
@@ -56,20 +52,18 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.passEditText.text.toString()
 
             viewModel.login(email, password).observe(this) { result ->
-                if (result != null) {
-                    when (result) {
-                        is Result.Loading -> {
-                            showLoading(true)
-                        }
-
-                        is Result.Success -> {
-                            showLoading(false)
-                            val responMasuk = result.data
-                            showToast(responMasuk.message)
-
+                when (result) {
+                    is Result.Loading -> {
+                        showLoading(true)
+                    }
+                    is Result.Success -> {
+                        showLoading(false)
+                        val response = result.data // Access the data properly
+                        response?.let {
+                            showToast(it.message ?: "Success") // Access message properly
                             val userModel = ModelUser(
                                 email = email,
-                                token = responMasuk.accessToken,
+                                token = it.token ?: "", // Default value is empty string if token is null
                                 isLogin = true
                             )
                             viewModel.saveSession(userModel)
@@ -78,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                                 setTitle(getString(R.string.success))
                                 setMessage(getString(R.string.success_login))
                                 setPositiveButton(getString(R.string.continue_main)) { _, _ ->
-                                    val intent = Intent(context, MainActivity::class.java)
+                                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                     intent.flags =
                                         Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                     startActivity(intent)
@@ -88,11 +82,10 @@ class LoginActivity : AppCompatActivity() {
                                 show()
                             }
                         }
-
-                        is Result.Error -> {
-                            showLoading(false)
-                            showToast(result.error)
-                        }
+                    }
+                    is Result.Error -> {
+                        showLoading(false)
+                        showToast(result.error)
                     }
                 }
             }

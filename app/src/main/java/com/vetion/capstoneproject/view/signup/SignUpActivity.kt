@@ -1,5 +1,6 @@
 package com.vetion.capstoneproject.view.signup
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -9,16 +10,21 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.vetion.capstoneproject.MainActivity
+import com.vetion.capstoneproject.ModelUser
 import com.vetion.capstoneproject.R
-import com.vetion.capstoneproject.databinding.ActivitySignUpBinding
 import com.vetion.capstoneproject.Result
 import com.vetion.capstoneproject.ViewModelFactory
+import com.vetion.capstoneproject.databinding.ActivitySignUpBinding
+import com.vetion.capstoneproject.response.RegisterResponse
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignUpBinding
-    private val viewModel by viewModels<SignUpViewModel> {
+
+    private val viewModel: SignUpViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+
+    private lateinit var binding: ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,32 +54,49 @@ class SignUpActivity : AppCompatActivity() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passEditText.text.toString()
 
+            // Perform signup action
             viewModel.signup(name, email, password).observe(this) { result ->
-                if (result != null) {
-                    when (result) {
-                        is Result.Loading -> {
-                            showLoading(true)
-                        }
+                when (result) {
+                    is Result.Loading -> {
+                        showLoading(true)
+                    }
+                    is Result.Success -> {
+                        showLoading(false)
+                        val registerResponse = result.data // Access the data properly
 
-                        is Result.Success -> {
-                            showToast(result.data.message)
-                            showLoading(false)
+                        // Check if token is not null, otherwise handle the case accordingly
+                        registerResponse?.let { response ->
+                            showToast(response.message ?: "Success") // Show appropriate message
+                            val token = response.token
 
-                            AlertDialog.Builder(this).apply {
-                                setTitle(getString(R.string.success))
-                                setMessage(getString(R.string.success_create_acc))
-                                setPositiveButton(getString(R.string.continue_login)) { _, _ ->
-                                    finish()
+                            if (!token.isNullOrEmpty()) {
+                                val userModel = ModelUser(
+                                    email = email,
+                                    token = token,
+                                    isLogin = true
+                                )
+
+                                AlertDialog.Builder(this).apply {
+                                    setTitle(getString(R.string.success))
+                                    setMessage(getString(R.string.success_login))
+                                    setPositiveButton(getString(R.string.continue_main)) { _, _ ->
+                                        val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                                        intent.flags =
+                                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                        startActivity(intent)
+                                        finish()
+                                    }
+                                    create()
+                                    show()
                                 }
-                                create()
-                                show()
+                            } else {
+                                showToast("Token is empty")
                             }
                         }
-
-                        is Result.Error -> {
-                            showToast(result.error)
-                            showLoading(false)
-                        }
+                    }
+                    is Result.Error -> {
+                        showLoading(false)
+                        showToast(result.error)
                     }
                 }
             }
