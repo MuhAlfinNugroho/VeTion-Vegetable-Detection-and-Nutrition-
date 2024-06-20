@@ -8,15 +8,11 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.vetion.capstoneproject.MainActivity
-import com.vetion.capstoneproject.ModelUser
 import com.vetion.capstoneproject.R
-import com.vetion.capstoneproject.Result
 import com.vetion.capstoneproject.ViewModelFactory
 import com.vetion.capstoneproject.databinding.ActivitySignUpBinding
-import com.vetion.capstoneproject.response.RegisterResponse
+import com.vetion.capstoneproject.view.login.LoginActivity
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -54,60 +50,26 @@ class SignUpActivity : AppCompatActivity() {
             val email = binding.emailEditText.text.toString()
             val password = binding.passEditText.text.toString()
 
+            // Show loading progress
+            showLoading(true)
+
             // Perform signup action
-            viewModel.signup(name, email, password).observe(this) { result ->
-                when (result) {
-                    is Result.Loading -> {
-                        showLoading(true)
-                    }
-                    is Result.Success -> {
-                        showLoading(false)
-                        val registerResponse = result.data // Access the data properly
-
-                        // Check if token is not null, otherwise handle the case accordingly
-                        registerResponse?.let { response ->
-                            showToast(response.message ?: "Success") // Show appropriate message
-                            val token = response.token
-
-                            if (!token.isNullOrEmpty()) {
-                                val userModel = ModelUser(
-                                    email = email,
-                                    token = token,
-                                    isLogin = true
-                                )
-
-                                AlertDialog.Builder(this).apply {
-                                    setTitle(getString(R.string.success))
-                                    setMessage(getString(R.string.success_login))
-                                    setPositiveButton(getString(R.string.continue_main)) { _, _ ->
-                                        val intent = Intent(this@SignUpActivity, MainActivity::class.java)
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                        startActivity(intent)
-                                        finish()
-                                    }
-                                    create()
-                                    show()
-                                }
-                            } else {
-                                showToast("Token is empty")
-                            }
-                        }
-                    }
-                    is Result.Error -> {
-                        showLoading(false)
-                        showToast(result.error)
-                    }
-                }
+            val isRegistered = viewModel.registerUser(name, email, password)
+            if (isRegistered) {
+                Toast.makeText(this, getString(R.string.registration_success), Toast.LENGTH_SHORT).show()
+                // Navigate to LoginActivity
+                val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show()
+                showLoading(false)
             }
         }
     }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }

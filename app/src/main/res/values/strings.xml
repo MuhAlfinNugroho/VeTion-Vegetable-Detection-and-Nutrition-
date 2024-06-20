@@ -55,4 +55,6 @@
     <string name="lanjut">Selanjutnya</string>
     <string name="tidaklanjut">Batalkan</string>
     <string name="error_no_location">Tidak ada lokasi</string>
+    <string name="registration_success">proses registrasi telah berhasil</string>
+    <string name="registration_failed">mohon maaf, proses registrasi anda gagal</string>
 </resources>
