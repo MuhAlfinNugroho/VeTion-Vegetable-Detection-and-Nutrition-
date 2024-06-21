@@ -7,19 +7,37 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.vetion.capstoneproject.ui.home.HomeFragment"
+        android:name="com.vetion.capstoneproject.ui.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.vetion.capstoneproject.ui.dashboard.DashboardFragment"
+        android:name="com.vetion.capstoneproject.ui.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.vetion.capstoneproject.ui.notifications.NotificationsFragment"
+        android:name="com.vetion.capstoneproject.ui.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_tips"
+        android:name="com.vetion.capstoneproject.ui.tips.VegeTipsFragment"
+        android:label="@string/title_tips"
+        tools:layout="@layout/fragment_vege_tips" />
+
+    <fragment
+        android:id="@+id/navigation_nearby"
+        android:name="com.vetion.capstoneproject.ui.nearbyshop.NearShopFragment"
+        android:label="@string/title_nearby"
+        tools:layout="@layout/fragment_near_shop" />
+
+    <fragment
+        android:id="@+id/navigation_logout"
+        android:name="com.vetion.capstoneproject.ui.LogoutFragment"
+        android:label="@string/title_logout"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

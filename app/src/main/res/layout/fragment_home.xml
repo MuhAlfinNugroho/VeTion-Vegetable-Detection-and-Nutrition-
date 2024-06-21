@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_slow"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/img1" />
+                    tools:src="@drawable/masakan_brokoli" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar2"
@@ -123,6 +123,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewBrokoli"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Brokoli"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2"
+                    tools:ignore="NotSibling" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -152,7 +166,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/img1" />
+                    tools:src="@drawable/masakan_paprika" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar3"
@@ -164,6 +178,21 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewPaprika"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paprika"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView3"
+                    tools:ignore="NotSibling" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -192,7 +221,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/img1" />
+                    tools:src="@drawable/masakan_sawi" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar4"
@@ -204,6 +233,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewSawi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sawi"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView4"
+                    tools:ignore="NotSibling" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,8 +277,10 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageNews"
@@ -245,17 +290,19 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/images" />
+                    app:srcCompat="@drawable/bersih_sayuran" />
 
                 <TextView
-                    android:id="@+id/result"
+                    android:id="@+id/textNews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:text="@string/result"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/sample_news_text"
+                    app:layout_constraintTop_toBottomOf="@id/imageNews"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageNews" />
+                    app:layout_constraintEnd_toEndOf="parent" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar5"
@@ -263,12 +310,13 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageNews"
-                    app:layout_constraintEnd_toEndOf="@+id/imageNews"
-                    app:layout_constraintStart_toStartOf="@+id/imageNews"
-                    app:layout_constraintTop_toTopOf="@+id/imageNews" />
+                    app:layout_constraintBottom_toBottomOf="@id/imageNews"
+                    app:layout_constraintEnd_toEndOf="@id/imageNews"
+                    app:layout_constraintStart_toStartOf="@id/imageNews"
+                    app:layout_constraintTop_toTopOf="@id/imageNews" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.cardview.widget.CardView>
 

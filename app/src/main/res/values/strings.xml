@@ -57,4 +57,11 @@
     <string name="error_no_location">Tidak ada lokasi</string>
     <string name="registration_success">proses registrasi telah berhasil</string>
     <string name="registration_failed">mohon maaf, proses registrasi anda gagal</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="searchBar_hint">Search</string>
+    <string name="title_tips">Vegetable Tips</string>
+    <string name="title_nearby">Nearby Shop</string>
+    <string name="title_logout">Logout</string>
+    <string name="sample_news_text">"    Saat memasak, membersihkan sayur adalah langkah penting untuk memastikan kebersihan dan keamanan makanan. Berikut adalah cara yang benar untuk membersihkan sayur:\n\n    1. Sayur Berdaun: Cuci sayuran berdaun seperti bayam, kangkung, atau selada secara hati-hati. Pisahkan daun dari batangnya dan cuci dengan air yang mengalir untuk menghilangkan kotoran dan pestisida yang mungkin masih menempel.\n\n    2. Brokoli dan Kol: Potong brokoli atau kol menjadi bagian-bagian kecil dan rendam dalam air yang mengandung sedikit garam. Biarkan selama beberapa menit untuk membantu menghilangkan sisa pestisida dan kotoran.\n\n    3. Paprika dan Terong: Cuci paprika dan terong dengan menyikatnya menggunakan sikat sayuran atau dengan menggunakan tangan. Bilas dengan air yang mengalir.\n\n    4. Kentang: Gosok kulit kentang dengan sikat sayuran untuk membersihkan kotoran dan tanah yang menempel pada kulitnya. Cuci dengan air bersih.\n\n    5. Cuci dengan Air yang Mengalir: Pastikan untuk mencuci sayuran di bawah air yang mengalir agar kotoran dan pestisida benar-benar terbilas.\n\n    6. Sayur Organik: Jika memungkinkan, pilih sayuran organik untuk mengurangi paparan pestisida.\n\n    7. Segera Keringkan: Setelah mencuci, segera keringkan sayur menggunakan alat pengering salad atau dengan menepuk-nepuknya dengan kertas tisu untuk mengurangi kelembaban yang dapat mempercepat pembusukan.\n\n    Dengan membersihkan sayur dengan baik, Anda dapat menikmati makanan yang lebih segar dan lebih aman bagi kesehatan Anda dan keluarga.\n"</string>
 </resources>
